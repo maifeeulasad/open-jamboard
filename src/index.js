@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import Board from "./component/Board";
+import Picker from "./component/Picker";
 
 ReactDOM.render(
   <React.StrictMode>
-      <Board/>
+      <>
+          <Picker/>
+          <Board/>
+      </>
   </React.StrictMode>,
   document.getElementById('root')
 );
