@@ -13,14 +13,25 @@ class Board extends React.Component {
             startY: 0,
             canvasRef: undefined,
             ctx: undefined,
-            color: 'black',
+            colorPrimary: 'black',
+            colorSecondary: 'white',
             height: window.innerHeight,
-            width: window.innerWidth
+            width: window.innerWidth,
+            pickedItem: "Pen"
         };
 
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.pickedItem!==prevProps.pickedItem){
+            console.log(this.props.pickedItem)
+            this.setState({
+                pickedItem: this.props.pickedItem
+            })
+        }
     }
 
     canvasElem = (elem) => {
@@ -32,8 +43,7 @@ class Board extends React.Component {
 
     handleMouseDown(e) {
         let ctx = this.state.ctx;
-
-        ctx.strokeStyle = this.state.color;
+        ctx.strokeStyle = this.state.colorPrimary;
         ctx.lineWidth = 3;
         ctx.lineJoin = "round";
         ctx.lineCap = "round";

@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import Board from "./component/Board";
-import Picker from "./component/Picker";
+import Wrapper from "./component/Wrapper";
 
 ReactDOM.render(
   <React.StrictMode>
-      <>
-          <Picker/>
-          <Board/>
-      </>
+      <Wrapper/>
   </React.StrictMode>,
   document.getElementById('root')
 );

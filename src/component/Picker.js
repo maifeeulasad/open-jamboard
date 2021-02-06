@@ -22,6 +22,7 @@ class Picker extends React.Component {
     }
 
     onItemClick = (item) => {
+        this.props.onItemPick(item);
         this.setState({
             pickedItem:item
         })
@@ -31,6 +32,7 @@ class Picker extends React.Component {
         return this.state.items.map((item) => {
             return (
                 <div
+                    key={item.name}
                     onClick={() => {this.onItemClick(item)}}
                     className={this.state.pickedItem.name === item.name ? "picked" : ""}>
                     <img
