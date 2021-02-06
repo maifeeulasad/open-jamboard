@@ -17,7 +17,7 @@ class Board extends React.Component {
             colorSecondary: 'white',
             height: window.innerHeight,
             width: window.innerWidth,
-            pickedItem: "Pen"
+            pickedItem: {"name": "Pen"}
         };
 
         this.handleMouseDown = this.handleMouseDown.bind(this);
@@ -27,7 +27,6 @@ class Board extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.pickedItem!==prevProps.pickedItem){
-            console.log(this.props.pickedItem)
             this.setState({
                 pickedItem: this.props.pickedItem
             })
@@ -43,7 +42,11 @@ class Board extends React.Component {
 
     handleMouseDown(e) {
         let ctx = this.state.ctx;
-        ctx.strokeStyle = this.state.colorPrimary;
+        if(this.state.pickedItem.name==='Pen'){
+            ctx.strokeStyle = this.state.colorPrimary;
+        }else if(this.state.pickedItem.name==='Eraser'){
+            ctx.strokeStyle = this.state.colorSecondary;
+        }
         ctx.lineWidth = 3;
         ctx.lineJoin = "round";
         ctx.lineCap = "round";
