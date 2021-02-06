@@ -34,7 +34,7 @@ class Board extends React.Component {
         let ctx = this.state.ctx;
 
         ctx.strokeStyle = this.state.color;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 3;
         ctx.lineJoin = "round";
         ctx.lineCap = "round";
 
