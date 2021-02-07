@@ -42,6 +42,7 @@ class Board extends React.Component {
 
     handleMouseDown(e) {
         let ctx = this.state.ctx;
+        ctx.beginPath();
         if(this.state.pickedItem.name==='Pen'){
             ctx.strokeStyle = this.state.colorPrimary;
         }else if(this.state.pickedItem.name==='Eraser'){
@@ -73,6 +74,7 @@ class Board extends React.Component {
     }
 
     handleMouseUp(e) {
+        this.state.ctx.closePath();
         this.setState({isDrawing: false});
     }
 
