@@ -36,7 +36,9 @@ class Board extends React.Component {
     canvasElem = (elem) => {
         this.setState({
             canvasRef: elem,
-            ctx: elem.getContext('2d')
+            ctx: elem.getContext('2d'),
+            offsetX: elem.getBoundingClientRect().left,
+            offsetY: elem.getBoundingClientRect().top,
         })
     }
 
